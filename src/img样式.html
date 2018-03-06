@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>Title</title>
+
+  <style>
+    .box {
+      width:100%;
+      position:relative;
+      border:1px solid red;
+      height:0;
+      padding-bottom:100%;
+    }
+    img {
+      position:absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!--这种样式会把不管是什么尺寸的图片 都会设置成四方形图片（会拉伸）-->
+  <div class="box">
+    <img src="http://wapruyitest.c-doctor.com/statics/user/image2018/02/11/7267302507.jpg" alt="">
+  </div>
+
+</body>
+</html>

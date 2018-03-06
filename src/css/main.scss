@@ -1,0 +1,27 @@
+
+// 定义变量
+$red:red;
+
+.nav {
+  ul {
+     //border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+    width:100%;
+    height: 40px;
+    line-height: 40px;
+    display:flex;
+    li {
+      flex:1;
+      text-align: center;
+      a {
+        display: block;
+        font-size: 14px;
+        color: rgb(77, 85, 93);
+        &.actives {
+          color:red;
+        }
+      }
+    }
+  }
+}
+
+
