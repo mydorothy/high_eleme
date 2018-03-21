@@ -10,10 +10,17 @@ Vue.use(Router)
 export default new Router({
   linkActiveClass: 'actives',
   routes: [
-    {
+    /*{
       path: '/',
       name: 'goods',
+      redirect:'/goods',//解决默认路由不加载linkActiveClass问题(打开主界面时“商品”样式问题)   redirect:重定向,简单来说就是自定义路由指针
       component: Goods
+    },*/
+    {
+      path: '/',
+      redirect:'/goods'
+      /*name: 'goods',
+       component: Goods*/ //这样写会有警告，因为下面已经配置过一个index了，所以改成 redirect
     },
     {
       path: '/goods',
