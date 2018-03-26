@@ -4,7 +4,7 @@
       <div class="overview">
         <h1 class="title">{{seller.name}}</h1>
         <div class="border-bottom-1px desc">
-          <star :size="36" :score="seller.score"></star>
+          <star-a :size="36" :score="seller.score"></star-a>
           <span class="text">({{seller.ratingCount}})</span>
           <span class="text">月售{{seller.sellCount}}单</span>
         </div>
@@ -75,7 +75,7 @@
 
   import BScroll from 'better-scroll'
   import {saveToLocal,loadFromLocal} from '../../common/js/store' // 注册共用方法
-  import star from '../star/star.vue'
+  import starA from '../star/star.vue'
   import split from '../split/split.vue'
   export default {
     name: 'seller',
@@ -85,8 +85,9 @@
       }
     },
     components: {
-      "star": star,
-      "split": split
+      starA,
+      split // 注册组件两种方式都可以
+//      "split": split
     },
     data () {
       return {
@@ -136,6 +137,7 @@
     },
     created () {// created 这个钩子在实例被创建之后被调用, 也有一些其它的钩子，在实例生命周期的不同阶段调用，如 mounted、 updated 、destroyed 。钩子的 this 指向调用它的 Vue 实例
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee']
+      console.log('动态路由传递过来的动态参数',this.$route.params);
     },
     mounted() { // mounted() {} ==  vue1.0的 ready(){}。 vue2.0中不存在 ready() {}了 //这里是vue初始化完成后执行的函数
       // 每次初始化该页面时都会执行

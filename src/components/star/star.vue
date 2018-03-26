@@ -10,6 +10,7 @@
   const OFF = 'off'
   const HALF = 'half'
   export default {
+    name:'star',
     props: {
       size: {
         type: Number

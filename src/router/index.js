@@ -28,7 +28,7 @@ export default new Router({
       component: Goods
     },
     {
-      path: '/seller',
+      path: '/seller:ids:id', // 定义动态路由 /名：ids ,获取传过来的动态参数 this.$router.params.ids
       name: 'seller',
       component: Seller
     },

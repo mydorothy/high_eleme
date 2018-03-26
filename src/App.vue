@@ -10,7 +10,7 @@
           <router-link to="/ratings">评论</router-link>
         </li>
         <li>
-          <router-link to="/seller">商家</router-link>
+          <router-link to="/seller8:1">商家</router-link> <!-- /seller8动态路由 -->
         </li>
       </ul>
     </div>

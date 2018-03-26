@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+  <style>
+    #box { /*id的权重是0100*/
+      color:blue;
+    }
+    .box1.box2 { /*class的权重是0010 ，两个class相加 0020 < id #box 0100 ，所以渲染color:blue*/
+      color:red;
+    }
+
+  </style>
+</head>
+<body>
+
+
+  <div class="box1 box2" id="box">
+    你好
+  </div>
+
+  <div>
+    <ul id="ul">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </div>
+<script>
+
+  var ul = document.getElementById('ul');
+  var arrLi = ul.children;
+  var i;
+  console.log(arrLi);
+  for(var i=0;i<arrLi.length;i++) {
+    (function (i) {
+      arrLi[i].onclick = function () {
+        console.log(i);
+      }
+    }(i));
+  };
+
+  sessionStorage.setItem('a',1);
+  /*alert(sessionStorage.getItem('b'));
+  alert(sessionStorage.getItem('a'));*/
+</script>
+</body>
+</html>
