@@ -6,6 +6,8 @@ import Ratings from '@/components/ratings/ratings'
 // @和 @component 都是在webpack.base.conf.js中配置的路径变量
 import Seller from '@component/seller/seller'
 
+import Vuetest from '@component/vuextest'
+
 Vue.use(Router)
 export default new Router({
   linkActiveClass: 'actives',
@@ -29,6 +31,11 @@ export default new Router({
       path: '/ratings',
       name: 'ratings',
       component: Ratings
+    },
+    {
+      path: '/vuextest',
+      name: 'vuextest',
+      component: Vuetest
     }
   ]
 })

@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 /* import header from './components/header'
 import footer from './components/footer  /*import {apiObj} from './js/api.js'
 apiObj.index();
@@ -71,6 +71,76 @@ export default {
         this.seller = Object.assign({},this.seller,response.data);
       }
     })
+
+
+
+
+
+
+    //测试使用 axios :用来做ajax接口请求，vue2.0后推荐使用 axios,vue-resource不更新了
+//    axios不支持jsonp，所以不能解决跨域问题，像楼上就是用的CORS(跨域资源共享)方案解决的跨域问题。
+    this.$axios.get('https://api.yya.gs/dwz_create',{params:{
+      api: "sina",
+      url: 'http://www.baidu.com'
+    }}).then((data) => {
+      console.log('data:',data);
+    }).catch((err) => {
+      console.log('err:',err);
+    })
+    // 一次性并发多个请求
+    let a = () => {
+      return this.$axios.get('http://datainfo.duapp.com/shopdata/getclass.php')
+    }
+    let b = () => {
+      return this.$axios.get('http://datainfo.duapp.com/shopdata/getclass.php')
+    }
+    this.$axios.all([a(),b()]).then(data => {
+      //当这两个请求都完成的时候会触发这个函数，两个参数分别代表返回的结果
+      console.log('全部执行完成：',data);
+    }).catch(err => {
+      console.log('错误：',err);
+    })
+    //axios可以通过配置（config）来发送请求
+    this.$axios({
+      method:'GET',
+      url:'/api/seller',
+      data:{
+        id:'123'
+      }
+    }).then((data) => {
+      console.log('通过配置来发送请求',data);
+    })
+    // 请求方式的别名,注意：当使用别名方法的时候，url,method,data这几个参数不需要在配置中声明
+    /*axios.request(config);
+    axios.get(url[,config]);
+    axios.delete(url[,config]);
+    axios.head(url[,config]);
+    axios.post(url[,data[,config]]);
+    axios.put(url[,data[,config]])
+    axios.patch(url[,data[,config]])*/
+    //设置默认配置，对所有请求都有效   全局默认配置
+    this.$axios.defaults.baseURL = 'http://api.exmple.com';
+    //当创建实例的时候配置默认配置
+    var instance = this.$axios.create({
+      baseURL: 'https://api.example.com'
+    });
+
+
+    /*this.$axios({
+      url:'http://datainfo.duapp.com/shopdata/getclass.php',
+      method:'GET',
+      data:{S
+        api: "sina",
+        url: 'http://www.baidu.com'
+      }
+    }).then((data) => {
+
+    }).catch(err => {
+      console.log('err1:',err);
+    })*/
+  },
+  mounted() {
+
   }
 }
 </script>
