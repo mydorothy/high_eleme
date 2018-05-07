@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <!--vue-wechat-title组件指定title标题-->
+    <div v-wechat-title="$route.meta.title"></div>
     <headers v-bind:seller="seller"></headers>
     <div class="nav">
       <ul class="border-bottom-1px">

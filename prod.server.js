@@ -45,7 +45,7 @@ app.get('/api/ratings', (req,res) => {
 })
 app.use('/api',apiRoute);
 
-app.use(express.static('./dist'));
+app.use(express.static('./dist'));//将静态资源文件所在的目录作为参数传递给 express.static 就可以提供静态资源文件的访问了
 
 module.exports = app.listen(port, function (err) {
   if (err) {
