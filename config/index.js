@@ -55,7 +55,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'), // 输出项目（线上）的目录
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: '/',//线上项目的引用路径: 为''或'./'代表相对当前页的路径，'/'代表绝对路径
 
     /**
      * Source Maps

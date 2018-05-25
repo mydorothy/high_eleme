@@ -23,6 +23,10 @@
     </keep-alive>
     <!-- <keep-alive> 是Vue的内置组件，能在组件切换过程中将状态保留在内存中，防止重复渲染DOM。(加上后route切换时会保留组件状态) ，vue1.0写法：<router-view keep-alive></router-view> -->
 
+    <!--路由组，一个页面多个路由同时显示-->
+    <router-view class="a" name="left" style="background:blue;width:300px;height:300px;"></router-view>
+    <router-view class="a" name="right" style="background:red;width:300px;height:300px;"></router-view>
+
     <footers></footers>
 
   </div>
@@ -142,7 +146,12 @@ export default {
     })*/
   },
   mounted() {
-
+    //测试 线上项目无跨域问题（在同一个域名下）
+    this.$http.get('/api/store/myStoreOrder!list.do?page=1&order_state=wait_ship').then((res) => {
+      console.log('订单列表：',res);
+    },(err) => {
+      console.log('订单列表错误：',err);
+    })
   }
 }
 </script>

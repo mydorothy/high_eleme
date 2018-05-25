@@ -10,6 +10,7 @@ import Seller from '@component/seller/seller'
 import Vuetest from '@component/vuextest'
 import RouterHtml from '../components/test/router'
 import childRouter from '../components/test/childRouter'
+import routerGroup from '../components/test/routerGroup.vue'
 
 Vue.use(Router)
 const router = new Router({
@@ -49,7 +50,7 @@ const router = new Router({
       name: 'vuextest',
       component: Vuetest
     },
-    {
+    {//子路由
       path:'/routerHtml',
       name:'routerHtml',
       component:RouterHtml,
@@ -68,6 +69,15 @@ const router = new Router({
         name:'content',
         component:{template:`<div>我是默认显示的内容</div>`}
       }]
+    },
+    {//路由组 一个页面多个路由同时显示
+      path:'/routerGroup/:id', // 用正则表示 :id(\\d+)
+      name:'routerGroup',
+      components: {
+        default: routerGroup,
+        left: {template:`<div>我是路由组中的左边</div>`},//left: router-view的name属性
+        right: {template:`<div>我是路由组中的右边</div>`}
+      }
     }
   ]
 });

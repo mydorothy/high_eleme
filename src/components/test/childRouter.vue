@@ -11,6 +11,9 @@
       return {
 
       }
+    },
+    created() {
+      console.log('路由111:',this.$route)
     }
   }
 </script>
